@@ -17,6 +17,32 @@
       // I don't know javascript well or the google maps API and SXSW, pray for the best
 	      var map;
 
+	        function getDropsNear(latitude, longitude, rad) {
+		      	$.ajax(
+		          "http://sxsw.kywu.org/find",
+		          {
+		              data:
+		              {
+		                  lat: latitude,
+		                  long: longitude,
+		                  radius: rad
+		              },
+		              type: "POST",
+		              dataType: "json",
+		              success: function(data)
+		              {
+		                  console.log("Success!" + $.parseJSON(data));
+		              },
+		              error: function(jqxhr, status, error)
+		              {
+		                  console.log("Error!");
+		              	}
+		          	}
+		      	);
+			}
+
+
+
 	      function initialize() {
 	      	var myLatlng1 = new google.maps.LatLng(30.265017,-97.7387609);
 	        var mapOptions = {
@@ -32,7 +58,8 @@
 	        	navigator.geolocation.getCurrentPosition(function (position) {
 	            	initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 	            	map.setCenter(initialLocation);
-	            	var locations = [{"id":"2","latitude":"30.26527778","longitude":"-97.73888889","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}, {"id":"3","latitude":"30.2769195","longitude":"-97.7547635","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}, {"id":"4","latitude":"30.2645772","longitude":"-97.7655353","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}];
+	            	// var locations = [{"id":"2","latitude":"30.26527778","longitude":"-97.73888889","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}, {"id":"3","latitude":"30.2769195","longitude":"-97.7547635","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}, {"id":"4","latitude":"30.2645772","longitude":"-97.7655353","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}];
+	            	var locations = getDropsNear(position.coords.latitude, position.coords.longitude, 2);
 	    	        for (var i = 0; i < locations.length; i++) {
 						var drop = locations[i];
 						var dropLatLng = new google.maps.LatLng(parseFloat(drop.latitude), parseFloat(drop.longitude));
