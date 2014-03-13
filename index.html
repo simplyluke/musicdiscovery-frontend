@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<title>Drop</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/ionicons.min.css">
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+    </style>
+    <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script type="text/javascript">
+      // I don't know javascript well or the google maps API and SXSW, pray for the best
+	      var map;
+
+	      function initialize() {
+	      	var myLatlng1 = new google.maps.LatLng(30.265017,-97.7387609);
+	        var mapOptions = {
+	          center: myLatlng1,
+	          zoom: 13,
+	          mapTypeId: google.maps.MapTypeId.ROADMAP
+	        };
+	        
+	        map = new google.maps.Map(document.getElementById("map-canvas"),
+	            mapOptions);
+
+	        if (navigator.geolocation) {
+	        	navigator.geolocation.getCurrentPosition(function (position) {
+	            	initialLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	            	map.setCenter(initialLocation);
+	            	var locations = [{"id":"2","latitude":"30.26527778","longitude":"-97.73888889","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}, {"id":"3","latitude":"30.2769195","longitude":"-97.7547635","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}, {"id":"4","latitude":"30.2645772","longitude":"-97.7655353","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}];
+	    	        for (var i = 0; i < locations.length; i++) {
+						var drop = locations[i];
+						var dropLatLng = new google.maps.LatLng(parseFloat(drop.latitude), parseFloat(drop.longitude));
+						var marker = new google.maps.Marker({
+							position: dropLatLng,
+							map: map,
+							title: drop.remark
+						});
+					} 
+				}, function() {
+					userHasNoLocation(true);
+	         	});
+	        } else {
+	        	userHasNoLocation(true);
+	        }
+
+	        var myLatlng = new google.maps.LatLng(30.26527778, -97.73888889);
+	      }
+	      
+	      function userHasNoLocation(error) {
+	      	var error = "Please allow geolocation to see drops near you.";
+	      	var options = {map: map, position: new google.maps.LatLng(30.26527778,-97.73888889), content: error};
+	      	var infowindow = new google.maps.InfoWindow(options);
+	      	map.setCenter(options.position);
+	      }
+
+	      google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+	  	<div id="info" class="">
+	  		<a href="#" class="download"><i class="icon ion-ios7-clock-outline"></i>Coming Soon.</a>
+	  	</div> 	
+		<div id="map-canvas"></div>
+		<div class="container shoutout">
+	  		<h1>Interact with your city and favorite musicians in a new way.</h1>
+	  	</div> 
+	  	
+	<script>
+		$('body').on("click", function() {
+			$('.shoutout').fadeOut(250);
+		});
+	</script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

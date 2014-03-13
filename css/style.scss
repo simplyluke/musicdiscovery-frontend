@@ -1,0 +1,50 @@
+html, body {
+	font-family: 'Helvetica', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color: #428bca;
+
+}
+
+a.download {
+	font-size: 3em;
+	padding: 3%;
+}
+
+.icon {
+	padding-right: .2em;
+}
+
+.container {
+	max-width: 75%;
+	margin: 0 auto;
+
+}
+.shoutout {
+	text-align: center;
+	z-index: 100;
+	padding-top: 10%;
+	width: 50%;
+	position: relative;
+	h1 {
+		font-size: 4em;
+	}
+}
+
+#info {
+	position: absolute;
+	z-index: 100;
+	width: 100%;
+	bottom: 10px;
+	text-align: center;
+}
+
+
+#map-canvas { 
+	height: 100%;
+	width: 100%; 
+	position: absolute;
+	z-index: 0;
+}
