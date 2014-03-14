@@ -45,7 +45,7 @@ if (navigator.geolocation) {
     	// var locations = [{"id":"2","latitude":"30.26527778","longitude":"-97.73888889","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}, {"id":"3","latitude":"30.2769195","longitude":"-97.7547635","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}, {"id":"4","latitude":"30.2645772","longitude":"-97.7655353","rdio_id":"aaaa","remark":"Based on the book Mountains Beyond Mountains.","image":""}];
 
       	$.ajax(
-          "http://sxsw.kywu.org/find",
+          "http://getsongstash.com/find",
           {
               data:
               {
