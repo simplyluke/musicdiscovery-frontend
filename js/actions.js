@@ -26,9 +26,8 @@ $(document).ready(function() {
 	});
 });
 function mailchimp() {
-	$("#shoutout #form #submit").html('<br><img src="images/loading.gif">');
-	$("#shoutout #form #submit img").show();
-				
+	$(".shoutout #form #submit").html('<br><img src="images/loading.gif">');
+	$(".shoutout #form #submit img").show();		
 	var serializeme = $("form").serialize();
 	var serializemetwo = serializeme.replace(/\n/g, "<br>");
 	$.ajax({
