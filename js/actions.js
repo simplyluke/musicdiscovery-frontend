@@ -32,7 +32,7 @@ function mailchimp() {
 	var serializemetwo = serializeme.replace(/\n/g, "<br>");
 	$.ajax({
 		type: "POST",
-		url: "js/subscribe.php",
+		url: "http://getsongstash.com/js/subscribe.php",
 		data: serializemetwo,
 		success: function(p) {
 			var output = JSON.parse(p);
