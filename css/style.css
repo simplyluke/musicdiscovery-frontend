@@ -1,5 +1,10 @@
 html, body {
-  font-family: 'Helvetica', sans-serif; }
+  font-family: 'Helvetica', sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("../images/background.jpg");
+  color: #fff; }
 
 a {
   text-decoration: none;
@@ -18,22 +23,63 @@ a.download {
 
 .shoutout {
   text-align: center;
-  z-index: 100;
-  padding-top: 10%;
+  padding-top: 5%;
   width: 50%;
   position: relative; }
   .shoutout h1 {
-    font-size: 4em; }
-
-#info {
-  position: absolute;
-  z-index: 100;
-  width: 100%;
-  bottom: 10px;
-  text-align: center; }
+    font-size: 4em;
+    font-weight: lighter; }
+  .shoutout h3 {
+    font-size: 2em; }
 
 #map-canvas {
-  height: 100%;
-  width: 100%;
+  height: 50%;
+  width: 100%; }
+
+.shoutout #form {
+  max-width: 400px;
+  background: #fff;
+  margin: 0px auto 18px auto;
+  text-align: left;
+  padding: 0px;
+  position: relative; }
+
+.shoutout #form #submit {
   position: absolute;
-  z-index: 0; }
+  right: 0;
+  background: #008fd5;
+  height: 100%;
+  top: 0px;
+  color: #fff;
+  padding: 0px 0px;
+  width: 45px;
+  text-align: center;
+  font-weight: 100;
+  line-height: 14px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  transition-property: background;
+  -moz-transition-duration: 0.2s;
+  -moz-transition-property: background;
+  -webkit-transition-duration: 0.2s;
+  -webkit-transition-property: background;
+  -o-transition-duration: 0.2s;
+  -o-transition-property: background; }
+
+.shoutout #form #submit img {
+  margin-top: -4px;
+  display: none; }
+
+.shoutout #form #submit:hover {
+  background: #69b186; }
+
+.shoutout #form input[type=email] {
+  margin: 0px;
+  border: 0px;
+  font-size: 18px;
+  color: #000;
+  font-weight: 200;
+  font-family: 'Helvetica Neue';
+  padding: 11px 15px;
+  width: calc(100% - 30px);
+  -webkit-appearance: none; }
