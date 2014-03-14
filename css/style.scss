@@ -1,8 +1,9 @@
 html, body {
 	font-family: 'Helvetica', sans-serif;
 	height: 100%; margin: 0; padding: 0;
-	background: url('../images/background.jpg');
-	color: #fff;
+	// background: url('../images/background.jpg');
+	// color: #fff;
+	font-size: 1.3em;
 }
 
 a {
@@ -26,7 +27,7 @@ a.download {
 }
 .shoutout {
 	text-align: center;
-	padding-top: 5%;
+	padding-top: 1%;
 	width: 50%;
 	position: relative;
 	h1 {
@@ -37,6 +38,19 @@ a.download {
 	h3 {
 		font-size: 2em;
 	}
+
+	.by {
+		padding-top: 30px;
+	}
+}
+
+a.button {
+	border-radius: none;
+	padding: 10px;
+	background-color: #008fd5;
+	color: #fff;
+	font-size: 1.5em;
+	margin-top: 20px;
 }
 
 // #info {
@@ -49,15 +63,39 @@ a.download {
 
 
 #map-canvas { 
-	height: 50%;
-	width: 100%; 
-	// position: absolute;
-	// z-index: 0;
-}
+		height: 45%;
+		width: 100%; 
+		position: absolute;
+		bottom: 0;
+		// z-index: 0;
+	}
 
-
-.shoutout #form { max-width: 400px; background: #fff; margin: 0px auto 18px auto; text-align: left; padding: 0px; position: relative; }
+.shoutout #form { max-width: 400px; margin: 0px auto 18px auto; text-align: left; padding: 0px; position: relative; }
 .shoutout #form #submit { position: absolute; right: 0; background: #008fd5; height: 100%; top: 0px; color: #fff; padding: 0px 0px; width: 45px; text-align: center; font-weight: 100; line-height: 14px; cursor: pointer; transition-duration: 0.2s; transition-property: background; -moz-transition-duration: 0.2s; -moz-transition-property: background; -webkit-transition-duration: 0.2s;  -webkit-transition-property: background; -o-transition-duration: 0.2s; -o-transition-property: background; }
 .shoutout #form #submit img { margin-top: -4px; display: none; }
-.shoutout #form #submit:hover { background: #69b186; }
+.shoutout #form #submit:hover { background: #428bca; }
 .shoutout #form input[type=email] { margin: 0px; border: 0px; font-size: 18px; color: #000; font-weight: 200; font-family: 'Helvetica Neue'; padding: 11px 15px; width: calc(100% - 30px); -webkit-appearance: none; }
+
+#form input {
+	background-color: #eee;
+}
+
+@media screen and (max-height: 900px) {
+	#map-canvas { display: none;}
+}
+
+@media screen and (max-width: 500px) {
+	.shoutout {
+		font-size: .9em;
+
+		h1 {
+			font-size: 2.7em;
+			max-width: 100%;
+		}
+
+	}
+
+	.container {
+		width: 95%;
+	}
+}
